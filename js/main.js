@@ -148,7 +148,7 @@
 		$('#navbar a:not([class="external"])').click(function(event){
 			var section = $(this).data('nav-section'),
 				navbar = $('#navbar');
-
+			console.log(section)
 				if ( $('[data-section="' + section + '"]').length ) {
 			    	$('html, body').animate({
 			        	scrollTop: $('[data-section="' + section + '"]').offset().top - 55
@@ -167,7 +167,7 @@
 
 
 	};
-	var clickMenu = function() {
+	var clickMenu1 = function() {
 
 		$('#clickNev').click(function(event){
 			var section = $(this).data('nav-section'),
@@ -318,6 +318,7 @@
 		burgerMenu();
 
 		clickMenu();
+		clickMenu1();
 		// navActive();
 		navigationSection();
 		// windowScroll();

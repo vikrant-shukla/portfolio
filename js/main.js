@@ -167,7 +167,30 @@
 
 
 	};
+	var clickMenu = function() {
 
+		$('#clickNev').click(function(event){
+			var section = $(this).data('nav-section'),
+				navbar = $('#navbar');
+
+				if ( $('[data-section="' + section + '"]').length ) {
+			    	$('html, body').animate({
+			        	scrollTop: $('[data-section="' + section + '"]').offset().top - 55
+			    	}, 500);
+			   }
+
+		    if ( navbar.is(':visible')) {
+		    	navbar.removeClass('in');
+		    	navbar.attr('aria-expanded', 'false');
+		    	$('.js-colorlib-nav-toggle').removeClass('active');
+		    }
+
+		    event.preventDefault();
+		    return false;
+		});
+
+
+	};
 	// Reflect scrolling in navigation
 	var navActive = function(section) {
 

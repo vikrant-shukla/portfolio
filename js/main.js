@@ -1,4 +1,4 @@
-;(function () {
+(function () {
 	
 	'use strict';
 
@@ -85,7 +85,7 @@
 							}
 
 							el.removeClass('item-animate');
-						},  k * 200, 'easeInOutExpo' );
+						},  200, 'easeInOutExpo' );
 					});
 					
 				}, 100);
@@ -252,44 +252,44 @@
 	  	});
 
 	};
-
-	var stickyFunction = function() {
-
-		var h = $('.image-content').outerHeight();
-
-		if ($(window).width() <= 992 ) {
-			$("#sticky_item").trigger("sticky_kit:detach");
-		} else {
-			$('.sticky-parent').removeClass('stick-detach');
-			$("#sticky_item").trigger("sticky_kit:detach");
-			$("#sticky_item").trigger("sticky_kit:unstick");
-		}
-
-		$(window).resize(function(){
-			var h = $('.image-content').outerHeight();
-			$('.sticky-parent').css('height', h);
-
-
-			if ($(window).width() <= 992 ) {
-				$("#sticky_item").trigger("sticky_kit:detach");
-			} else {
-				$('.sticky-parent').removeClass('stick-detach');
-				$("#sticky_item").trigger("sticky_kit:detach");
-				$("#sticky_item").trigger("sticky_kit:unstick");
-
-				$("#sticky_item").stick_in_parent();
-			}
-			
-
-			
-
-		});
-
-		$('.sticky-parent').css('height', h);
-
-		$("#sticky_item").stick_in_parent();
-
-	};
+	//
+	// var stickyFunction = function() {
+	//
+	// 	var h = $('.image-content').outerHeight();
+	//
+	// 	if ($(window).width() <= 992 ) {
+	// 		$("#sticky_item").trigger("sticky_kit:detach");
+	// 	} else {
+	// 		$('.sticky-parent').removeClass('stick-detach');
+	// 		$("#sticky_item").trigger("sticky_kit:detach");
+	// 		$("#sticky_item").trigger("sticky_kit:unstick");
+	// 	}
+	//
+	// 	$(window).resize(function(){
+	// 		var h = $('.image-content').outerHeight();
+	// 		$('.sticky-parent').css('height', h);
+	//
+	//
+	// 		if ($(window).width() <= 992 ) {
+	// 			$("#sticky_item").trigger("sticky_kit:detach");
+	// 		} else {
+	// 			$('.sticky-parent').removeClass('stick-detach');
+	// 			$("#sticky_item").trigger("sticky_kit:detach");
+	// 			$("#sticky_item").trigger("sticky_kit:unstick");
+	//
+	// 			// $("#sticky_item").stick_in_parent();
+	// 		}
+	//
+	//
+	//
+	//
+	// 	});
+	//
+	// 	$('.sticky-parent').css('height', h);
+	//
+	// 	//$("#sticky_item").stick_in_parent();
+	//
+	// };
 
 	var owlCrouselFeatureSlide = function() {
 		$('.owl-carousel').owlCarousel({
@@ -326,7 +326,7 @@
 
 		mobileMenuOutsideClick();
 		sliderMain();
-		stickyFunction();
+		// stickyFunction();
 		owlCrouselFeatureSlide();
 	});
 

@@ -14,7 +14,7 @@ if(isset($_POST) && !empty($_POST)){
 	if($full_name == ''){
 		$full_name =  $first_name.' '.$middle_name.' '.$last_name;
 	}
-	
+
 	$sendMessage = $mailSubject = '';
 	if($_POST['form_type'] == 'contact'){
 		$mailSubject = 'Contact Details';
@@ -23,11 +23,11 @@ if(isset($_POST) && !empty($_POST)){
 		$mailSubject = 'Inquiry Details';
 		$sendMessage = "<p>Hello,</p><p>".$full_name." has sent a message having </p><p><b>Email id:</b> ".$email."</p><p><b>Phone:</b> ".$contact_no."</p><p><b>Subject:</b> ".$subject."</p><p><b>Date :</b> ".$date."</p><p><b>Time :</b> ".$time."</p><p><b>Message :</b> ".$message."</p>";
 	}
-	
+
 	if($sendMessage != ''){
 		$fromEmail = 'jayeshchouhan98765@gmail.com';
 		$toEmail = 'vikrantshukla011@gmail.com';
-		
+
 		$headers = "MIME-Version: 1.0" . "\r\n";
 		$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 		$headers .= "From: <$fromEmail>" . "\r\n";

@@ -799,7 +799,7 @@
                             <div class="row">
                                 <div class="col-md-10 col-md-offset-1 col-md-pull-1 animate-box"
                                      data-animate-effect="fadeInRight">
-                                    <form>
+                                    <form method="post" >
                                         <div class="form-group">
                                             <input type="text" name="first_name" class="require form-control" required="" placeholder="Name">
                                         </div>
@@ -816,8 +816,12 @@
                                         </div>
                                         <div class="form-group">
                                              <div class="response center" style="font-size: 18px; color: #e38612;"></div>
-                                            <input type="submit" class="submitForm btn btn-primary btn-send-message"
-                                                   value="Send Message">
+                                            <input type="hidden" name="form_type" value="contact" />
+                                            <div class="tb_es_btn_wrapper os_contact_input ">
+                                                <button type="button" class="submitForm btn btn-primary btn-send-message">
+                                                    <span>Send Message</span>
+                                                </button>
+                                            </div>
                                         </div>
                                     </form>
                                 </div>

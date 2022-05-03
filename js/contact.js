@@ -64,6 +64,7 @@ $(document).ready(function(){
 	// Contact Form Submition
 	function checkRequire(formId , targetResp){
 		targetResp.html('');
+
 		var email = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
 		var url = /(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?/;
 		var image = /\.(jpe?g|gif|png|PNG|JPE?G)$/;
@@ -107,27 +108,32 @@ $(document).ready(function(){
 		console.log("jay")
 		var _this = $(this);
 		var targetForm = _this.closest('form');
+		console.log(targetForm)
 		var errroTarget = targetForm.find('.response');
 		var check = checkRequire(targetForm , errroTarget);
 		if(check == 0){
 			var formDetail = new FormData(targetForm[0]);
+			console.log(targetForm[0])
 			$.ajax({
-				method : 'post',
-				url : 'jackson-master/contactmail.php',
+				method : 'POST',
+				url : 'contactmail.php',
 				data:formDetail,
 				cache:false,
 				contentType: false,
-				processData: false
-			}).done(function(resp){
-				console.log(resp)
-				if(resp == 1){
-					targetForm.find('input').val('');
-					targetForm.find('textarea').val('');
-					errroTarget.html('<p style="color:green;">Mail has been sent successfully.</p>');
-				}else{
-					errroTarget.html('<p style="color:red;">Something went wrong please try again later.</p>');
-				}
-			});
+				processData: false,
+				success: (e , data,d,t,u,w,r,m,q,p)=> console.log(e,data,d,t,u,w,r,m,q,p),
+				error: (e)=> console.log(e)
+			})
+			// 	.done(function(resp){
+			// 	console.log(resp)
+			// 	if(resp == 1){
+			// 		targetForm.find('input').val('');
+			// 		targetForm.find('textarea').val('');
+			// 		errroTarget.html('<p style="color:green;">Mail has been sent successfully.</p>');
+			// 	}else{
+			// 		errroTarget.html('<p style="color:red;">Something went wrong please try again later.</p>');
+			// 	}
+			// });
 		}
 	});
 });

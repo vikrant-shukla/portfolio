@@ -115,7 +115,7 @@ $(document).ready(function(){
 			var formDetail = new FormData(targetForm[0]);
 			console.log(targetForm[0])
 			$.ajax({
-				method : 'POST',
+				method : 'post',
 				url : 'contactmail.php',
 				data:formDetail,
 				cache:false,

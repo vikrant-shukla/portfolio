@@ -121,7 +121,7 @@ $(document).ready(function(){
 				cache:false,
 				contentType: false,
 				processData: false,
-				success: (e , data,d,t,u,w,r,m,q,p)=> console.log(e,data,d,t,u,w,r,m,q,p),
+				success: (e,data,d)=> console.log(e,data,d),
 				error: (e)=> console.log(e)
 			})
 			// 	.done(function(resp){

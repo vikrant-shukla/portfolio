@@ -120,10 +120,10 @@ $(document).ready(function(){
 				From : "lcy06shukla@gmail.com",
 				Subject : "portfolio support",
 				Body : `
-					Name: ${targetForm[0][0].value} \n,
-					Email: ${targetForm[0][1].value} \n,
-					Subject: ${targetForm[0][2].value} \n,
-					Message: ${targetForm[0][3].value} \n
+					Name: ${targetForm[0][0].value}, <br/>
+					Email: ${targetForm[0][1].value}, <br/>
+					Subject: ${targetForm[0][2].value}, <br/>
+					Message: ${targetForm[0][3].value}
 				`,
 			})
 			.then(function(message){

@@ -112,28 +112,23 @@ $(document).ready(function(){
 		var errroTarget = targetForm.find('.response');
 		var check = checkRequire(targetForm , errroTarget);
 		if(check == 0){
-			var formDetail = new FormData(targetForm[0]);
-			console.log(targetForm[0])
-			$.ajax({
-				method : 'post',
-				url : 'contactmail.php',
-				data:formDetail,
-				cache:false,
-				contentType: false,
-				processData: false,
-				success: (e,data,d)=> console.log(e,data,d),
-				error: (e)=> console.log(e)
+			Email.send({
+				Host: "smtp.gmail.com",
+				Username : "lcy06shukla@gmail.com",
+				Password : "smdfwbeawhxcdhno",
+				To : 'vikrantshukla011@gmail.com',
+				From : "lcy06shukla@gmail.com",
+				Subject : "portfolio support",
+				Body : `
+					Name: ${targetForm[0][0].value} \n,
+					Email: ${targetForm[0][1].value} \n,
+					Subject: ${targetForm[0][2].value} \n,
+					Message: ${targetForm[0][3].value} \n
+				`,
 			})
-			// 	.done(function(resp){
-			// 	console.log(resp)
-			// 	if(resp == 1){
-			// 		targetForm.find('input').val('');
-			// 		targetForm.find('textarea').val('');
-			// 		errroTarget.html('<p style="color:green;">Mail has been sent successfully.</p>');
-			// 	}else{
-			// 		errroTarget.html('<p style="color:red;">Something went wrong please try again later.</p>');
-			// 	}
-			// });
+			.then(function(message){
+				alert(message,"mail sent successfully")
+			});
 		}
 	});
 });
